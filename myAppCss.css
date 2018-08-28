@@ -1,0 +1,137 @@
+html, body{
+  width: 100%;
+  height: 100%;
+}
+body{
+  margin: 0;
+}
+#start{
+  position: absolute;
+  left: 358px;
+  top: 283px;
+}
+#activityWrapper{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+#wrapper, #assetsWrapper,#questionWrapper,#navigationHolder{
+  position: relative;
+  width: inherit;
+  overflow: hidden;
+}
+#assetsWrapper{
+  margin-top: 30px;
+  display: table;
+}
+#currentQuestion{
+  width: 82%;
+  vertical-align: middle;
+  display: table-cell;
+  font-size: 30px;
+  text-align: center;
+  color: orange;
+}
+#timer{
+  vertical-align: middle;
+  display: table-cell;
+  font-size: 50px;
+  width: 130px;
+  text-align: center;
+  color: orange;
+  border: 1px solid;
+}
+ #qholder{
+  background: green;
+  border: 1px solid;
+  width: 700px;
+  height: 100px;
+  position: relative;
+  margin: 20px 0px 0px 30px;
+  overflow: overlay;
+}
+#qholder #questionText{
+  padding: 20px 0 0 20px;
+  font-size: 20px;
+}
+#answerHolder{
+  position: relative;
+  margin: 20px 0px 0px 30px;
+}
+.optionHolder{
+  display: table;
+  background: transparent;
+  border: transparent;
+  margin-bottom: 25px;
+}
+.option{
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid;
+  font-size: 20px;
+  display: table-cell;
+  width: 30px;
+  height: 30px;
+}
+.choice{
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid;
+  font-size: 20px;
+  display: table-cell;
+  width: 400px;
+  position: relative;
+  left: 40px;
+}
+#line{
+  position: relative;
+  margin-left: 30px;
+  width: 702px;
+  height: 1px;
+  background: black;
+}
+.htmlbutton{
+  margin-top: 30px;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  font-size: 22px; 
+}
+#prev{
+  left: 220px;
+}
+#next{
+  left: 250px;
+}
+#submit{
+  left: 280px;
+}
+#finish{
+  left: 380px;
+}
+
+#scoreWrapper{
+  position: absolute;
+  width: 400px;
+  height: 380px;
+  border-radius: 25px;
+  overflow: hidden;
+  border: 2px solid cornflowerblue;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+}
+.scoreCls{
+  position: relative;
+  text-align: center;
+  font-size: 40px;
+  height: 76px;
+}
+#score{
+  background: aquamarine;
+}

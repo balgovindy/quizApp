@@ -1,0 +1,101 @@
+{
+  "qBankArr": [
+    {
+      "question": "(function(){<br/>&nbsp;&nbsp;&nbsp;return typeof arguments;<br/>})();",
+      "optionArr": [
+        "object",
+        "array",
+        "arguments",
+        "undefined"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "var f = function g(){ return 23; };<br/>&nbsp;typeof g();",
+      "optionArr": [
+        "number",
+        "undefined",
+        "function",
+        "Error"
+      ],
+      "correct": 3
+    },
+    {
+      "question": "(function f(f){<br/>&nbsp;&nbsp;&nbsp;return typeof f();<br/>})(function(){ return 1; });",
+      "optionArr": [
+        "number",
+        "undefined",
+        "function",
+        "Error"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "String('Hello') === 'Hello';",
+      "optionArr": [
+        "true",
+        "false",
+        "typeError"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "10 > 9 > 8 === true;",
+      "optionArr": [
+        "true",
+        "false",
+        "typeError"
+      ],
+      "correct": 1
+    },
+    {
+      "question": " var f = (function f(){ return \"1\"; }, function g(){ return 2; })();<br/>typeof f;",
+      "optionArr": [
+        "string",
+        "number",
+        "function",
+        "undefined"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Number( \"1\") - 1 == 0;",
+      "optionArr": [
+        "true",
+        "false",
+        "typeError"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "(true + false) > 2 + true;",
+      "optionArr": [
+        "true",
+        "false",
+        "typeError",
+        "NaN"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "\"1\" - - \"1\";",
+      "optionArr": [
+        "0",
+        "2",
+        "11",
+        "\"11\""
+      ],
+      "correct": 1
+    },
+    {
+      "question": "new Array(5).toString();",
+      "optionArr": [
+        "\",,,,\"",
+        "[]",
+        "\"[]\"",
+        "undefined"
+      ],
+      "correct": 0
+    }
+  ]
+}

@@ -5,11 +5,13 @@ $(document).ready(() => {
 
 const getJSONData = (data) => {
   window.qBank = data.qBankArr;
+  window.timePeriod = data.timeDuaration;
   window.currentpart = 0;
   window.currentresponse = undefined
   window.qBank.forEach((question) => {
     question.responseSubmit = false;
     question.state = 'unattempt';
+    question.response = undefined
   })
   createMainPage();
   shuffle(window.qBank);
@@ -43,13 +45,16 @@ const onStartClick = () => {
   $('#activityWrapper').empty();
   createUI();
 }
+
 const createUI = () => {
   currentQue = qBank[currentpart];
   const $wrapper = $('<div>').attr('id', 'wrapper').appendTo('#activityWrapper');
   // question Number and Timer 
   const $assetsWrapper = $('<div>').attr('id', 'assetsWrapper').appendTo($wrapper)
   $('<div>').attr('id', 'currentQuestion').appendTo($assetsWrapper);
-  $('<div>').attr('id', 'timer').appendTo($assetsWrapper).html('<span>05:00</span>');
+  //---------------------------------------------------------------------------------
+  const time = timePeriod < 10 ? `0${timePeriod}:00` : `${timePeriod}:00`;
+  $('<div>').attr('id', 'timer').appendTo($assetsWrapper).html(`<span>${time}</span>`);
   // ---------------------------------------------------------------------------------
   createTimer();
   // ---------------------------------------------------------------------------------
@@ -87,12 +92,16 @@ const optionClick = function () {
   $(this).css('background', 'gray');
   $('#submit').data().enable();
   currentresponse = Number($(this).attr('id').split('_')[1]);
+  qBank[currentpart].response = currentresponse;
 }
 
 const updatedata = () => {
   currentQue = qBank[currentpart];
   $('.option').css('background', '');
   $('#submit').data().disable();
+  if (currentQue.response !== undefined) {
+    $(`#option_${currentQue.response}`).css('background', 'gray');
+  }
   $('#currentQuestion').html(`Question: ${currentpart + 1}/${qBank.length}`);
   $('#questionText').html(currentQue.question);
   $('.choice').each(function (i) {
@@ -127,6 +136,7 @@ const onFinishClick = () => {
   clearInterval(timerInterval)
   createResultUi();
 }
+
 const createResultUi = () => {
   const tempArr = qBank.map((ques) => ques.state);
   const countStateObj = {}
@@ -136,12 +146,13 @@ const createResultUi = () => {
   const { correct = 0, incorrect = 0, unattempt = 0 } = countStateObj;
   const score = correct - 0.5 * incorrect;
   const percentage = score > 0 ? Math.round((score / qBank.length) * 100) : 0;
-  const $scoreWrapper = $('<div>').attr('id', 'scoreWrapper').appendTo('#activityWrapper')
+  const $scoreWrapper = $('<div>').attr('id', 'scoreWrapper').appendTo('#activityWrapper');
   $('<div>').attr('id', 'score').addClass('scoreCls').html(`You Scored:${score}`).appendTo($scoreWrapper);
   $('<div>').attr('id', 'correct').addClass('scoreCls').html(`Correct:${correct}`).appendTo($scoreWrapper);
   $('<div>').attr('id', 'incorrect').addClass('scoreCls').html(`Incorrect:${incorrect}`).appendTo($scoreWrapper);
   $('<div>').attr('id', 'skiped').addClass('scoreCls').html(`Skipped:${unattempt}`).appendTo($scoreWrapper);
   $('<div>').attr('id', 'percentage').addClass('scoreCls').html(`Percentage:${percentage}%`).appendTo($scoreWrapper);
+  $('<div>').addClass('scoreCls').html(`Thank You!!!`).appendTo($scoreWrapper);
 }
 
 const buttonState = () => {
@@ -151,7 +162,7 @@ const buttonState = () => {
 }
 
 const createTimer = () => {
-  const duaration = 5 * 60;
+  const duaration = timePeriod * 60;
   const display = $('#timer');
   timer(duaration, display);
 }

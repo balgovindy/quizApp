@@ -1,4 +1,5 @@
 {
+  "timeDuaration": 5,
   "qBankArr": [
     {
       "question": "(function(){<br/>&nbsp;&nbsp;&nbsp;return typeof arguments;<br/>})();",

@@ -35,7 +35,8 @@
       "optionArr": [
         "true",
         "false",
-        "typeError"
+        "typeError",
+        "none"
       ],
       "correct": 0
     },
@@ -44,7 +45,8 @@
       "optionArr": [
         "true",
         "false",
-        "typeError"
+        "typeError",
+        "undefined"
       ],
       "correct": 1
     },
@@ -63,7 +65,8 @@
       "optionArr": [
         "true",
         "false",
-        "typeError"
+        "typeError",
+        "undefined"
       ],
       "correct": 0
     },

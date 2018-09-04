@@ -100,6 +100,106 @@
         "undefined"
       ],
       "correct": 0
+    },
+    {
+      "question": "const arr = [10, 12, 15, 21];<br/><br/>for (var i = 0; i < arr.length; i++) {<br/>&nbsp;&nbsp;setTimeout(function() {<br/>&nbsp;&nbsp;&nbsp;console.log('Index: ' + i + ', element: ' + arr[i]);<br/>&nbsp;&nbsp;},3000);<br/>}",
+      "optionArr": [
+        "Index: 0 element: 10",
+        "Index: 2 element: 15",
+        "Index: 3 element: 21",
+        "Index: 4 element: undefined"
+      ],
+      "correct": 3
+    },
+    {
+      "question": "Which of the following function of String object returns the calling string value converted to upper case",
+      "optionArr": [
+        "toLocaleUpperCase()",
+        "toUpperCase()",
+        "toString()",
+        "substring()"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Which built-in method sorts the elements of an array?",
+      "optionArr": [
+        "changeOrder(order)",
+        "order()",
+        "sort()",
+        "None of the above."
+      ],
+      "correct": 2
+    },
+    {
+      "question": "How can you get the type of arguments passed to a function?",
+      "optionArr": [
+        "using typeof operator",
+        "using getType function",
+        "Both of the above.",
+        "None of the above."
+      ],
+      "correct": 0
+    },
+    {
+      "question": "Which built-in method returns the character at the specified index?",
+      "optionArr": [
+        "characterAt()",
+        "getCharAt()",
+        "charAt()",
+        "None of the above."
+      ],
+      "correct": 2
+    },
+    {
+      "question": "What is the correct way to write a JavaScript array?",
+      "optionArr": [
+        "var colors = [\"red\", \"green\", \"blue\"]",
+        "var colors = \"red\", \"green\", \"blue\"",
+        "var colors = 1 = (\"red\"), 2 = (\"green\"), 3 = (\"blue\")",
+        "None of the above."
+      ],
+      "correct": 0
+    },
+    {
+      "question": "How do you round the number 7.25, to the nearest integer?",
+      "optionArr": [
+        "round(7.25)",
+        "Math.round(7.25)",
+        "rnd(7.25)",
+        "Math.rnd(7.25)"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "How do you round the number 7.25, to the nearest integer?",
+      "optionArr": [
+        "round(7.25)",
+        "Math.round(7.25)",
+        "rnd(7.25)",
+        "Math.rnd(7.25)"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "What will the following code return: Boolean(10 > 9)",
+      "optionArr": [
+        "NaN",
+        "true",
+        "false",
+        "Error"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "var x = `foo ${y}`,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y = `bar ${x}`;<br/><br/>console.log(x);",
+      "optionArr": [
+        "foo undefined",
+        "foo bar undefined",
+        "foo bar foo bar",
+        "Error"
+      ],
+      "correct": 0
     }
   ]
 }

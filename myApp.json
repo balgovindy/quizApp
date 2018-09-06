@@ -172,7 +172,7 @@
       "correct": 1
     },
     {
-      "question": "function f(){</br>&nbsp;return 2;</br>}</br></br>typeof f()",
+      "question": "function f(){</br>&nbsp;return 2;</br>}</br></br>typeof new f()",
       "optionArr": [
         "undefined",
         "number",

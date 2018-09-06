@@ -7,8 +7,13 @@ body{
 }
 #start{
   position: absolute;
-  left: 358px;
-  top: 283px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 85px;
+  height: 40px;
+  margin: auto;
+  right: 0;
 }
 #activityWrapper{
   position: absolute;
@@ -22,6 +27,9 @@ body{
   position: relative;
   width: inherit;
   overflow: hidden;
+}
+#questionWrapper{
+  margin-left: 30px
 }
 #assetsWrapper{
   margin-top: 30px;
@@ -46,20 +54,20 @@ body{
 }
  #qholder{
   background: green;
-  border: 1px solid;
-  width: 700px;
-  height: 100px;
-  position: relative;
-  margin: 20px 0px 0px 30px;
-  overflow: overlay;
+    border: 1px solid;
+    max-width: 700px;
+    height: 100px;
+    position: relative;
+    margin: 20px 0px 0px 0px;
+    overflow: overlay;
 }
 #qholder #questionText{
-  padding: 20px 0 0 20px;
+  padding: 20px 0 0 15px;
   font-size: 20px;
 }
 #answerHolder{
   position: relative;
-  margin: 20px 0px 0px 30px;
+  margin: 20px 0px 0px 0px;
 }
 .optionHolder{
   display: table;
@@ -82,14 +90,14 @@ body{
   border: 1px solid;
   font-size: 20px;
   display: table-cell;
-  width: 400px;
+  min-width: 400px;
+  max-width: 450px;
   position: relative;
-  left: 40px;
+  left: 15px;
 }
 #line{
   position: relative;
-  margin-left: 30px;
-  width: 702px;
+  max-width: 700px;
   height: 1px;
   background: black;
 }
@@ -101,16 +109,16 @@ body{
   font-size: 22px; 
 }
 #prev{
-  left: 220px;
+  margin-left: 150px;
 }
 #next{
-  left: 250px;
+  margin-left: 15px;
 }
 #submit{
-  left: 280px;
+  margin-left: 15px;
 }
 #finish{
-  left: 380px;
+  margin-left: 45px;
 }
 
 #scoreWrapper{

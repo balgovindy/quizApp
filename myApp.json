@@ -172,14 +172,14 @@
       "correct": 1
     },
     {
-      "question": "How do you round the number 7.25, to the nearest integer?",
+      "question": "function f(){</br>&nbsp;return 2;</br>}</br></br>typeof f()",
       "optionArr": [
-        "round(7.25)",
-        "Math.round(7.25)",
-        "rnd(7.25)",
-        "Math.rnd(7.25)"
+        "undefined",
+        "number",
+        "object",
+        "Error"
       ],
-      "correct": 1
+      "correct": 2
     },
     {
       "question": "What will the following code return: Boolean(10 > 9)",

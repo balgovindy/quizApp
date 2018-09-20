@@ -1,4 +1,3 @@
-
 $(document).ready(() => {
   $.getJSON('myApp.json', getJSONData)
 })
@@ -18,7 +17,8 @@ const getJSONData = (data) => {
 }
 
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+  var currentIndex = array.length,
+    temporaryValue, randomIndex;
 
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
@@ -37,13 +37,17 @@ function shuffle(array) {
 }
 const createMainPage = () => {
   $('<div>').attr('id', 'activityWrapper').appendTo('body');
-  new ButtonClass({ text: 'START', events: onStartClick }).appendTo('#activityWrapper');
+  new ButtonClass({
+    text: 'START',
+    events: onStartClick
+  }).appendTo('#activityWrapper');
   $('#start').data().enable();
 }
 
 const onStartClick = () => {
   $('#activityWrapper').empty();
   createUI();
+  this.initTime = new Date().getTime()
 }
 
 const createUI = () => {
@@ -74,10 +78,22 @@ const createUI = () => {
 
   $('<div>').attr('id', 'line').appendTo($questionWrapper);
   const $navigationHolder = $('<div>').attr('id', 'navigationHolder').appendTo($wrapper);
-  new ButtonClass({ text: 'PREV', events: onPreviousClick }).appendTo($navigationHolder);
-  new ButtonClass({ text: 'NEXT', events: onNextClick }).appendTo($navigationHolder);
-  new ButtonClass({ text: 'SUBMIT', events: onSubmitClick }).appendTo($navigationHolder);
-  new ButtonClass({ text: 'FINISH', events: onFinishClick }).appendTo($navigationHolder);
+  new ButtonClass({
+    text: 'PREV',
+    events: onPreviousClick
+  }).appendTo($navigationHolder);
+  new ButtonClass({
+    text: 'SKIP',
+    events: onSkipClick
+  }).appendTo($navigationHolder);
+  new ButtonClass({
+    text: 'SUBMIT',
+    events: onSubmitClick
+  }).appendTo($navigationHolder);
+  new ButtonClass({
+    text: 'FINISH',
+    events: onFinishClick
+  }).appendTo($navigationHolder);
   updatedata();
   buttonState();
   optionEvents();
@@ -115,7 +131,7 @@ const onPreviousClick = () => {
   buttonState();
 }
 
-const onNextClick = () => {
+const onSkipClick = () => {
   currentpart++;
   updatedata();
   buttonState();
@@ -143,7 +159,9 @@ const createResultUi = () => {
   tempArr.forEach((state) => {
     countStateObj[state] = (countStateObj[state] || 0) + 1;
   })
-  const { correct = 0, incorrect = 0, unattempt = 0 } = countStateObj;
+  const {
+    correct = 0, incorrect = 0, unattempt = 0
+  } = countStateObj;
   const score = correct - 0.5 * incorrect;
   const percentage = score > 0 ? Math.round((score / qBank.length) * 100) : 0;
   const $scoreWrapper = $('<div>').attr('id', 'scoreWrapper').appendTo('#activityWrapper');
@@ -158,7 +176,7 @@ const createResultUi = () => {
 const buttonState = () => {
   $('#finish').data().enable()
   currentpart ? $('#prev').data().enable() : $('#prev').data().disable();
-  currentpart < qBank.length - 1 ? $('#next').data().enable() : $('#next').data().disable();
+  currentpart < qBank.length - 1 ? $('#skip').data().enable() : $('#skip').data().disable();
 }
 
 const createTimer = () => {
@@ -169,8 +187,12 @@ const createTimer = () => {
 
 const timer = (duaration, display) => {
   let minutes, seconds;
+  const Period = duaration;
   window.timerInterval = setInterval(() => {
-    if (--duaration < 0) {
+    var currentTime = new Date().getTime();
+
+    duaration = Period - Math.round((currentTime - this.initTime) / 1000);
+    if (duaration < 0) {
       display.textContent = '00:00';
       onFinishClick();
       return;
@@ -200,7 +222,7 @@ class ButtonClass {
     config.fillColor = config.fillColor ? config.fillColor : 'rgba(39, 135, 176,1)';
     config.textColor = config.textColor ? config.textColor : 'rgba(255,255,255,1)';
     config.text = config.text ? config.text : '';
-    this.events = isFunction(config.events) ? config.events : () => { };
+    this.events = isFunction(config.events) ? config.events : () => {};
     this.isEnabled = isBoolean(config.isEnabled) ? config.isEnabled : true;
     this.isSelected = isBoolean(config.isSelected) ? config.isSelected : false;
     return this.createButton(config);
